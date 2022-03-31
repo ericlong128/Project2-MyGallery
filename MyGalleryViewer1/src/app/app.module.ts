@@ -13,6 +13,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavComponent } from './components/nav/nav.component';
+import { FindComponent } from './components/find/find.component';
+import { AllComponent } from './components/all/all.component';
+import { UsersComponent } from './components/users/users.component';
+import { RemoveComponent } from './components/remove/remove.component';
 import { RandomComponent } from './components/random/random.component';
 
 
@@ -20,11 +24,14 @@ import { RandomComponent } from './components/random/random.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    
     GalleryComponent,
     LoginComponent,
     RegisterComponent,
     NavComponent,
+    FindComponent,
+    AllComponent,
+    UsersComponent,
+    RemoveComponent,
     RandomComponent
 
   ],

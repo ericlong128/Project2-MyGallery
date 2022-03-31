@@ -6,7 +6,7 @@ export class User {
     username: string;
     password: string;
     email: string;
-    gallery: Gallery[]; // array of Address objects;
+    artworks: Artwork[]; // array of Address objects;
 
     constructor(
       id: number,
@@ -15,7 +15,7 @@ export class User {
       username: string,
       password: string,
       email: string,
-      gallery: Gallery[]
+      artworks: Artwork[]
   ) {
       this.id = id
       this.firstName = firstName
@@ -23,57 +23,59 @@ export class User {
       this.username = username
       this.password = password
       this.email = email
-      this.gallery = gallery
+      this.artworks = artworks
     }
 
   }
- 
-  export class Gallery {
-    
 
-    data: any;
-    imgSrc: any;
-    config:any;
+ 
+  
+  export class Artwork {
+    id: number;
+    articId: number;
+    imageId: string;
+    imageConfig: string;
+
+    title: string;
+    artist: string;
+    origin: string;
+    date: string;
+    description: string;
+    width: number;
+    height: number;
+
 
     //config: string;
     // id: string;
 
     constructor(
-        data: any,
-        imgSrc: any,
-        config:any 
-        //config: string,
-        // id: string,
-    ) {
-        this.data = data;
-        this.imgSrc = imgSrc;
-        this.config = config;
-        //this.config = config;
-        // this.id = id;
-    }
-
-    
-  //  // data: {
-  //     title: any;
-  //     image_id: any;
-  //  // } | any;
-  // // config:{ 
-  //    iiif_url: any; 
-  //  //      }|any;
-     //  imgSrc: any;
-  //   constructor(
-      
-  //     title: any, 
-  //      image_id: any,  
-  //      iiif_url: any,
-   //   imgSrc: any
 
 
-  // ) {
-  //     this.title = title;
-  //     this.image_id= image_id;
-  //     this.iiif_url = iiif_url;
-  //     this.imgSrc = imgSrc;
+      id: number,
+      articId: number,
+      imageId: string,
+      imageConfig: string,
+
+      title: string,
+      artist: string,
+      origin: string,
+      date: string,
+      description: string,
+      width: number,
+      height: number
+  ) {
+      this.id = id;
+      this.articId = articId;
+      this.imageId = imageId;
+      this.imageConfig = imageConfig;
+      this.title = title;
+      this.artist = artist;
+      this.origin = origin;
+      this.date = date;
+      this.description = description;
+      this.width = width;
+      this.height = height;
+
 
     }
   
