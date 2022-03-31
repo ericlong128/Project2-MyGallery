@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Gallery } from 'src/app/models/image';
 
 import { RandomService } from 'src/app/services/random.service'
 @Component({
@@ -8,14 +9,19 @@ import { RandomService } from 'src/app/services/random.service'
 })
 
 export class RandomComponent  {
-    
   
+    
+  public gallery = new Gallery('','','');
   
   
 
     constructor(private RandomService: RandomService ) {
 
+      
+      
      }
+     
+
 
   
   random:number= 0
@@ -30,11 +36,26 @@ export class RandomComponent  {
     
     let idNum = this.random;
     this.RandomService.findImage(idNum)
-    .subscribe( this.setArt)
-    // fetch(
-    //   `https://api.artic.edu/api/v1/artworks/${idNum}?fields=id,title,image_id`
-    // )
-    //   .then((response) => response.json()) // .json can only be called on a promise
+    .subscribe( (data)=> {
+     
+       this.gallery.data = data.data;
+       this.gallery.config = data.config;
+       this.setArt(this.gallery)
+      
+    
+    console.log(this.gallery)
+     
+     
+      // this.gallery = data
+      
+      // console.log(this.gallery);
+      // this.setArt(this.gallery);
+     // to take away error message
+    }
+      
+  );
+    
+      // .json can only be called on a promise
       // it parse the body of the HTTP response into a JavaScript object
       
     
@@ -61,13 +82,14 @@ export class RandomComponent  {
    * @param {
    * } data
    */
-   setArt(data: { data: { title: any; image_id: any; }; config: { iiif_url: any; }; }) {
-    console.log(data);
+   setArt(Gallery: Gallery ) {
+    console.log(this.gallery);
 
-    let imgUrl1 = data.config.iiif_url;
-    let imgUrl2 = data.data.image_id;
-     this.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
-    console.log(this.imgSrc);
+    let imgUrl1 = this.gallery.config.iiif_url
+    let imgUrl2 = this.gallery.data.image_id;
+    
+    this.gallery.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
+    console.log(this.gallery.imgSrc);
 
     
   }

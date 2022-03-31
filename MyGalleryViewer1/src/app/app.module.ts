@@ -15,6 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NavComponent } from './components/nav/nav.component';
 import { RandomComponent } from './components/random/random.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

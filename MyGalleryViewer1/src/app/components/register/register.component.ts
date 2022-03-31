@@ -14,7 +14,7 @@ export class RegisterComponent {
 
   title = 'Register User';
   public user = new User(0,'','','','','',[]);
-  public gallery = new Gallery('');
+  public gallery = new Gallery('','','');
   clientMessage = new ClientMessage('');
 
   constructor(private userService: UserService) { }
