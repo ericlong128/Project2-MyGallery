@@ -1,3 +1,4 @@
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,8 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MyGalleryViewer';
+  public isLoggedIn = false;
 
-  name = 'Rick';
+  public username: string = '';
+  updateUserData(username: string): void {
+    this.username = username;
+  }
+
+  signOut(): void {
+
+    window.location.reload(); //flushes the session
+  }
+
 
 
 
