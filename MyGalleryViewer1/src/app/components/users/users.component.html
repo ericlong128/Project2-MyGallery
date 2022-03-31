@@ -1,0 +1,23 @@
+<div>
+
+  <div>
+    <!-- one way data bind {{interpolation}}-->
+    <h2 class="card-header" text-center>You are currently signed in as: {{appComponent.username}}, Welcome to {{title}}!</h2>
+
+  </div>
+
+  <div class="card-body">
+
+    <!-- <img src={{image}} alt="User Network" class="mx-auto d-block"> -->
+
+    <div class="list-group">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/all">View All Users</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/register">Register User</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/find">Find Users</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/remove">Remove Users</button>
+
+
+    </div>
+  </div>
+
+</div>

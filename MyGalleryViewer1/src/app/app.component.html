@@ -1,5 +1,12 @@
+<app-home *ngIf="!isLoggedIn"></app-home>
 
-<app-nav></app-nav>
+<app-nav *ngIf="isLoggedIn"></app-nav>
+
+
+<div class = "container" *ngIf="isLoggedIn">
+  <div class="card border-0 my-auto w-100">
+    <div class="shadow-lg">
+
 
 
 <p>
@@ -8,3 +15,10 @@
 
 
 <router-outlet></router-outlet>
+
+</div>
+</div>
+
+  <button (click)="signOut()" class="btn btn-secondary">Logout</button>
+</div>
+

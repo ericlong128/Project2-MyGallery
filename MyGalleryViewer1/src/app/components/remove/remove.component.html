@@ -1,0 +1,39 @@
+<div>
+
+  <div>
+    <!--one way data binding via {{interpolation}}-->
+    <h2 class="card-header text-center">{{title}}</h2>
+  </div>
+
+  <div class="card-body">
+
+    <h5 class="card-title">Enter the Id of the User you want to remove:</h5>
+
+    <div class="input-group flex-nowrap">
+
+        <span class="input-group-text" id="addon-wrapping">Id</span>
+
+        <input [(ngModel)]="userId" name="userId" type="number" class="form-control" placeholder="Enter User's Id" (keydown.enter)="removeUser()">
+
+        <button class="btn btn-secondary" (click)="removeUser()">Remove</button>
+
+    </div>
+
+ <!--*ngIf Add a message if something goes wrong-->
+    <div *ngIf="clientMessage.message.length" class="alert" role="alert">
+
+      {{clientMessage.message}}
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+</div>

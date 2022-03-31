@@ -19,6 +19,19 @@ export class UserService {
   // inject ANOTHER service into this service
   constructor(private http: HttpClient) { }
 
+  deleteUserById(id: number) :Observable<any> {
+
+    return this.http.delete(`${userUrl}/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  findUserById(id: number) : Observable<User> {
+
+    console.log(`User entered id: ${id}`)
+
+    return this.http.get<User>(`${userUrl}/${id}`, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
   findAllUsers(): Observable<User[]> {
 
     return this.http.get<User[]>(userUrl, this.httpOptions).pipe(catchError(this.handleError));

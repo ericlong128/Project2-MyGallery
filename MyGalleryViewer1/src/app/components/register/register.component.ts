@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ClientMessage } from 'src/app/models/client-message';
-import { Gallery, User } from 'src/app/models/user';
+import { Artwork, User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class RegisterComponent {
 
   title = 'Register User';
   public user = new User(0,'','','','','',[]);
-  public gallery = new Gallery('');
+  // public artwork = new Artwork(0,0,'','','','','','','',0,0);
   clientMessage = new ClientMessage('');
 
   constructor(private userService: UserService) { }
@@ -23,8 +23,9 @@ export class RegisterComponent {
 
     console.log(this.user);
 
+
     //call upon a service to transmit object via HTTP to a backend API
-    this.user.gallery.push(this.gallery);
+    // this.user.artworks.push(this.artwork);
 
     this.userService.registerUser(this.user)
       .subscribe(

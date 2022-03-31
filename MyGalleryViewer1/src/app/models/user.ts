@@ -6,7 +6,7 @@ export class User {
     username: string;
     password: string;
     email: string;
-    gallery: Gallery[]; // array of Address objects;
+    artworks: Artwork[]; // array of Address objects;
 
     constructor(
       id: number,
@@ -15,7 +15,7 @@ export class User {
       username: string,
       password: string,
       email: string,
-      gallery: Gallery[]
+      artworks: Artwork[]
   ) {
       this.id = id
       this.firstName = firstName
@@ -23,21 +23,52 @@ export class User {
       this.username = username
       this.password = password
       this.email = email
-      this.gallery = gallery
+      this.artworks = artworks
     }
 
   }
 
-  export class Gallery {
+  export class Artwork {
+    id: number;
+    articId: number;
+    imageId: string;
+    imageConfig: string;
 
-    imgUrl: string;
+    title: string;
+    artist: string;
+    origin: string;
+    date: string;
+    description: string;
+    width: number;
+    height: number;
+
 
 
     constructor(
-      imgUrl: string,
+      id: number,
+      articId: number,
+      imageId: string,
+      imageConfig: string,
 
+      title: string,
+      artist: string,
+      origin: string,
+      date: string,
+      description: string,
+      width: number,
+      height: number
   ) {
-      this.imgUrl = imgUrl
+      this.id = id;
+      this.articId = articId;
+      this.imageId = imageId;
+      this.imageConfig = imageConfig;
+      this.title = title;
+      this.artist = artist;
+      this.origin = origin;
+      this.date = date;
+      this.description = description;
+      this.width = width;
+      this.height = height;
 
     }
   }
