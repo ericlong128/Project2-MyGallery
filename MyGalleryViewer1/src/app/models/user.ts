@@ -28,6 +28,8 @@ export class User {
 
   }
 
+ 
+  
   export class Artwork {
     id: number;
     articId: number;
@@ -43,8 +45,12 @@ export class User {
     height: number;
 
 
+    //config: string;
+    // id: string;
 
     constructor(
+
+
       id: number,
       articId: number,
       imageId: string,
@@ -70,5 +76,6 @@ export class User {
       this.width = width;
       this.height = height;
 
+
     }
-  }
+  

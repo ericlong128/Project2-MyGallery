@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Gallery } from 'src/app/models/image';
 
+import { RandomService } from 'src/app/services/random.service'
 @Component({
   selector: 'app-random',
   templateUrl: './random.component.html',
@@ -7,21 +9,19 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 
 export class RandomComponent  {
+  
     
-  imgSrc:string;
+  public gallery = new Gallery('','','');
   
-  @ViewChild('art-id', { static: true }) artId: ElementRef | undefined;
   
-    @ViewChild('art-title', { static: true }) artTitle: ElementRef | undefined;
-    @ViewChild('art-info', { static: true }) artInfo: ElementRef | undefined;
-    @ViewChild('btn', { static: true }) button: ElementRef | undefined;
-    @ViewChild('art-img', { static: true }) artImg: ElementRef | undefined;
 
+    constructor(private RandomService: RandomService ) {
 
-    constructor() {
-
-      this.imgSrc= ''
+      
+      
      }
+     
+
 
   
   random:number= 0
@@ -35,12 +35,29 @@ export class RandomComponent  {
     this.random =  Math.floor(Math.random() * (max - min + 1) + min);
     
     let idNum = this.random;
-    fetch(
-      `https://api.artic.edu/api/v1/artworks/${idNum}?fields=id,title,image_id`
-    )
-      .then((response) => response.json()) // .json can only be called on a promise
+    this.RandomService.findImage(idNum)
+    .subscribe( (data)=> {
+     
+       this.gallery.data = data.data;
+       this.gallery.config = data.config;
+       this.setArt(this.gallery)
+      
+    
+    console.log(this.gallery)
+     
+     
+      // this.gallery = data
+      
+      // console.log(this.gallery);
+      // this.setArt(this.gallery);
+     // to take away error message
+    }
+      
+  );
+    
+      // .json can only be called on a promise
       // it parse the body of the HTTP response into a JavaScript object
-      .then(this.setArt);
+      
     
   }
 
@@ -65,13 +82,14 @@ export class RandomComponent  {
    * @param {
    * } data
    */
-   setArt(data: { data: { title: any; image_id: any; }; config: { iiif_url: any; }; }) {
-    console.log(data);
+   setArt(Gallery: Gallery ) {
+    console.log(this.gallery);
 
-    let imgUrl1 = data.config.iiif_url;
-    let imgUrl2 = data.data.image_id;
-     this.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
-    console.log(this.imgSrc);
+    let imgUrl1 = this.gallery.config.iiif_url
+    let imgUrl2 = this.gallery.data.image_id;
+    
+    this.gallery.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
+    console.log(this.gallery.imgSrc);
 
     
   }
