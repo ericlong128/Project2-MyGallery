@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
+import { RandomService } from 'src/app/services/random.service'
 @Component({
   selector: 'app-random',
   templateUrl: './random.component.html',
@@ -8,19 +9,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 export class RandomComponent  {
     
-  imgSrc:string;
   
-  @ViewChild('art-id', { static: true }) artId: ElementRef | undefined;
   
-    @ViewChild('art-title', { static: true }) artTitle: ElementRef | undefined;
-    @ViewChild('art-info', { static: true }) artInfo: ElementRef | undefined;
-    @ViewChild('btn', { static: true }) button: ElementRef | undefined;
-    @ViewChild('art-img', { static: true }) artImg: ElementRef | undefined;
+  
 
+    constructor(private RandomService: RandomService ) {
 
-    constructor() {
-
-      this.imgSrc= ''
      }
 
   
@@ -35,12 +29,14 @@ export class RandomComponent  {
     this.random =  Math.floor(Math.random() * (max - min + 1) + min);
     
     let idNum = this.random;
-    fetch(
-      `https://api.artic.edu/api/v1/artworks/${idNum}?fields=id,title,image_id`
-    )
-      .then((response) => response.json()) // .json can only be called on a promise
+    this.RandomService.findImage(idNum)
+    .subscribe( this.setArt)
+    // fetch(
+    //   `https://api.artic.edu/api/v1/artworks/${idNum}?fields=id,title,image_id`
+    // )
+    //   .then((response) => response.json()) // .json can only be called on a promise
       // it parse the body of the HTTP response into a JavaScript object
-      .then(this.setArt);
+      
     
   }
 
