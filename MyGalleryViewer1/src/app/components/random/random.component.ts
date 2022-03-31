@@ -7,11 +7,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 
 export class RandomComponent  {
-
+    
   imgSrc:string;
-
+  
   @ViewChild('art-id', { static: true }) artId: ElementRef | undefined;
-
+  
     @ViewChild('art-title', { static: true }) artTitle: ElementRef | undefined;
     @ViewChild('art-info', { static: true }) artInfo: ElementRef | undefined;
     @ViewChild('btn', { static: true }) button: ElementRef | undefined;
@@ -23,17 +23,17 @@ export class RandomComponent  {
       this.imgSrc= ''
      }
 
-
+  
   random:number= 0
   clicked = false;
-
+  
 
   public onClick() {
-
+    
     const min = Math.ceil(10000);
     const max = Math.floor(69999);
     this.random =  Math.floor(Math.random() * (max - min + 1) + min);
-
+    
     let idNum = this.random;
     fetch(
       `https://api.artic.edu/api/v1/artworks/${idNum}?fields=id,title,image_id`
@@ -41,7 +41,7 @@ export class RandomComponent  {
       .then((response) => response.json()) // .json can only be called on a promise
       // it parse the body of the HTTP response into a JavaScript object
       .then(this.setArt);
-
+    
   }
 
   onMousedown() {
@@ -52,9 +52,9 @@ export class RandomComponent  {
     this.clicked = false;
   }
   getData() {
-
+    
   }
-
+  
   /**
    * This function takes the response data and builds the img src url.
    * imgUrl1 is the first part of the url: config.iiif_url from api
@@ -73,6 +73,6 @@ export class RandomComponent  {
      this.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
     console.log(this.imgSrc);
 
-
+    
   }
 }
