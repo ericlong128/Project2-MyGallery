@@ -13,7 +13,7 @@ export class AppComponent {
 
   public username: string = '';
   public id: number = 0;
-  public currentUser: User = new User(0, '','','','','',[]);
+  public currentUser: User = new User(0, '', '', '', '', '', []);
   updateUserData(currentUser: User): void {
     this.currentUser = currentUser;
   }
@@ -29,6 +29,6 @@ export class AppComponent {
   time = new Date();
 
   constructor() {
-    setInterval( () => this.time = new Date(), 30000);
+    setInterval(() => this.time = new Date(), 30000);
   }
 }
