@@ -1,3 +1,4 @@
+
 export class Gallery {
     
 
@@ -46,3 +47,4 @@ export class Gallery {
   //     this.imgSrc = imgSrc;
 
     }
+

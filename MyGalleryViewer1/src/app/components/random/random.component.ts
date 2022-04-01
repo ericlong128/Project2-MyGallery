@@ -1,8 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ClientMessage } from 'src/app/models/client-message';
+
+import { Image } from 'src/app/models/image';
+
+
 import { Gallery } from 'src/app/models/image';
 import { Artwork,User} from 'src/app/models/user';
-
 
 import { RandomService } from 'src/app/services/random.service'
 @Component({
@@ -12,35 +15,41 @@ import { RandomService } from 'src/app/services/random.service'
 })
 
 export class RandomComponent  {
+=======
   
   public user = new User(2, '', '', '', '', '', []);  
   public gallery = new Gallery('','','');
   public artowork = new Artwork(0,0,'','','','','','','',0,0,[this.user])
   public clientMessage: ClientMessage = new ClientMessage('');
 
+
   
+
 
     constructor(private RandomService: RandomService ) {
 
       
-      
+
      }
      
 
 
-  
+
+
+
   random:number= 0
   clicked = false;
-  
+
 
   public onClick() {
-    
+
     const min = Math.ceil(10000);
     const max = Math.floor(69999);
     this.random =  Math.floor(Math.random() * (max - min + 1) + min);
-    
+
     let idNum = this.random;
     this.RandomService.findImage(idNum)
+
     .subscribe( (data)=> {
      
        this.gallery.data = data.data;
@@ -82,6 +91,7 @@ export class RandomComponent  {
     
   }
 
+
   onMousedown() {
     this.clicked = true;
   }
@@ -90,14 +100,16 @@ export class RandomComponent  {
     this.clicked = false;
   }
   getData() {
-    
+
   }
+
   public registerArtwork(): void {
     //this.user.artworks.push(this.artwork);
     console.log(this.artowork);
     this.RandomService.saveImage(this.artowork)
       .subscribe(data => console.log(data), error => console.log(error));
   }
+
   /**
    * This function takes the response data and builds the img src url.
    * imgUrl1 is the first part of the url: config.iiif_url from api
@@ -108,6 +120,7 @@ export class RandomComponent  {
    * @param {
    * } data
    */
+
    setArt(Gallery: Gallery ) {
     console.log(this.gallery);
 
@@ -117,7 +130,7 @@ export class RandomComponent  {
     this.gallery.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
     console.log(this.gallery.imgSrc);
 
-    
+
   }
 
 }

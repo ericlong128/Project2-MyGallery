@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+
 import { Gallery } from '../models/image';
 import { Observable, catchError, throwError } from 'rxjs';
 import { url } from 'src/environments/environment';
 import { Artwork } from '../models/user';
+
 
 
 
@@ -15,6 +17,7 @@ export class RandomService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
+
   
   // inject ANOTHER service into this service
   constructor(private http: HttpClient) { }
@@ -33,6 +36,7 @@ export class RandomService {
 
 
   
+
 
   private handleError(httpError: HttpErrorResponse) {
 
