@@ -32,9 +32,9 @@ export class User {
   
   export class Artwork {
     id: number;
-    articId: number;
-    imageId: string;
-    imageConfig: string;
+    artic_id: number;
+    image_id: string;
+    image_config: string;
 
     title: string;
     artist: string;
@@ -43,6 +43,8 @@ export class User {
     description: string;
     width: number;
     height: number;
+    owners: User[];
+
 
 
     //config: string;
@@ -52,9 +54,9 @@ export class User {
 
 
       id: number,
-      articId: number,
-      imageId: string,
-      imageConfig: string,
+      artic_id: number,
+      image_id: string,
+      image_config: string,
 
       title: string,
       artist: string,
@@ -62,12 +64,14 @@ export class User {
       date: string,
       description: string,
       width: number,
-      height: number
+      height: number,
+      owners: User[]
+
   ) {
       this.id = id;
-      this.articId = articId;
-      this.imageId = imageId;
-      this.imageConfig = imageConfig;
+      this.artic_id = artic_id;
+      this.image_id = image_id;
+      this.image_config = image_config;
       this.title = title;
       this.artist = artist;
       this.origin = origin;
@@ -75,7 +79,8 @@ export class User {
       this.description = description;
       this.width = width;
       this.height = height;
+      this.owners= owners;
 
 
     }
-  
+  }
