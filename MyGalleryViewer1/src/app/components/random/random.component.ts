@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ClientMessage } from 'src/app/models/client-message';
 import { Gallery } from 'src/app/models/image';
+import { Artwork,User} from 'src/app/models/user';
+
 
 import { RandomService } from 'src/app/services/random.service'
 @Component({
@@ -10,9 +13,11 @@ import { RandomService } from 'src/app/services/random.service'
 
 export class RandomComponent  {
   
-    
+  public user = new User(2, '', '', '', '', '', []);  
   public gallery = new Gallery('','','');
-  
+  public artowork = new Artwork(0,0,'','','','','','','',0,0,[this.user])
+  public clientMessage: ClientMessage = new ClientMessage('');
+
   
 
     constructor(private RandomService: RandomService ) {
@@ -40,11 +45,23 @@ export class RandomComponent  {
      
        this.gallery.data = data.data;
        this.gallery.config = data.config;
-       this.setArt(this.gallery)
-      
+       this.setArt(this.gallery);
+       this.artowork.artic_id= data.data.id;
+       this.artowork.artist= data.data.artist_title;
+       this.artowork.date= data.data.date_display;
+       this.artowork.description=data.data.thumbnail.alt_text;
+       this.artowork.height=data.data.thumbnail.height;
+       this.artowork.origin=data.data.place_of_origin;
+       this.artowork.title=data.data.title;
+       this.artowork.width=data.data.thumbnail.width;
+       this.artowork.image_id=data.data.image_id;
+       this.artowork.image_config=data.config.iiif_url;
+    console.log(this.gallery);
+    console.log(this.artowork);
+    console.log(data);
+    this.clientMessage.message = '';
     
-    console.log(this.gallery)
-     
+
      
       // this.gallery = data
       
@@ -52,7 +69,11 @@ export class RandomComponent  {
       // this.setArt(this.gallery);
      // to take away error message
     }
-      
+   , error => this.clientMessage.message = `No artwork found please try again!`
+
+
+
+
   );
     
       // .json can only be called on a promise
@@ -71,7 +92,12 @@ export class RandomComponent  {
   getData() {
     
   }
-  
+  public registerArtwork(): void {
+    //this.user.artworks.push(this.artwork);
+    console.log(this.artowork);
+    this.RandomService.saveImage(this.artowork)
+      .subscribe(data => console.log(data), error => console.log(error));
+  }
   /**
    * This function takes the response data and builds the img src url.
    * imgUrl1 is the first part of the url: config.iiif_url from api
@@ -93,5 +119,6 @@ export class RandomComponent  {
 
     
   }
+
 }
 

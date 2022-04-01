@@ -2,8 +2,8 @@
    
     <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">Enter Artwork ID</h5>
-          <input type="number" id="art-id" placeholder="Enter Artwork ID" />
+          <h5 class="card-title">Click The to Get art</h5>
+         
           <button type="submit"  class="btn btn-primary"id="btn" 
           (click)="onClick()" 
           (mousedown)="onMousedown()" 
@@ -12,7 +12,12 @@
           
             Get Art!
           </button>
-          <p>Example: 27992</p>
+          <button type="submit" class="btn btn-danger" (click)="registerArtwork()">Register</button>
+        </div>
+        <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
+
+          {{clientMessage.message}}
+    
         </div>
       </div>
 
