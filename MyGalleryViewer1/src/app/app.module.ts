@@ -18,6 +18,8 @@ import { AllComponent } from './components/all/all.component';
 import { UsersComponent } from './components/users/users.component';
 import { RemoveComponent } from './components/remove/remove.component';
 import { RandomComponent } from './components/random/random.component';
+import { SaveComponent } from './save/save.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { RandomComponent } from './components/random/random.component';
     AllComponent,
     UsersComponent,
     RemoveComponent,
-    RandomComponent
+    RandomComponent,
+    SaveComponent
 
   ],
   imports: [

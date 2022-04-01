@@ -2,24 +2,27 @@
 
     <div class="card text-center">
         <div class="card-body">
+<h5 class="card-title">Click The to Get art</h5>
+         
+          <button type="submit"  class="btn btn-primary"id="btn" 
+          (click)="onClick()" 
+          (mousedown)="onMousedown()" 
+          (mouseup)="onMouseup()" 
 
-          <button type="submit"  class="btn btn-primary"id="btn"
-          (click)="onClick()"
-          (mousedown)="onMousedown()"
-          (mouseup)="onMouseup()"
           [class.clicked]="clicked">
 
             Get Art!
           </button>
 
+          <button type="submit" class="btn btn-danger" (click)="registerArtwork()">Register</button>
+        </div>
+        <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
+
+          {{clientMessage.message}}
+    
         </div>
       </div>
-      <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
 
-        {{clientMessage.message}}
-
-      </div>
-
-      <img src={{image.imgSrc}} class="d-block w-100 img-fluid" alt="First slide" id="art-img">
-
-
+      
+      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" alt="First slide" id="art-img"> 
+      >>>>>>> main
