@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientMessage } from 'src/app/models/client-message';
-import { Image } from 'src/app/models/image';
+import { Gallery } from 'src/app/models/image';
 import { RandomService } from 'src/app/services/random.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { RandomService } from 'src/app/services/random.service';
 })
 export class GalleryComponent implements OnInit {
 
-  public image = new Image('','','',0,0,'','','','','','','',0,0);
+  public image = new Gallery('','','');
   public clientMessage: ClientMessage = new ClientMessage('');
   public images: any = [];
   public numOfImages: number = 10;
@@ -39,9 +39,9 @@ export class GalleryComponent implements OnInit {
     const min = Math.ceil(10000);
     const max = Math.floor(69999);
     let random =  Math.floor(Math.random() * (max - min + 1) + min);
-    let clickImage = new Image('','','',0,0,'','','','','','','',0,0);
+    let clickImage = new Gallery('','','');
     let idNum = random;
-    this.clientMessage.message = '';
+
     this.RandomService.findImage(idNum)
     .subscribe( data=> {
 
@@ -92,7 +92,7 @@ export class GalleryComponent implements OnInit {
    * @param {
    * } data
    */
-   setArt(setImage: Image ) {
+   setArt(setImage: Gallery ) {
 
     this.image = setImage;
 

@@ -1,3 +1,4 @@
+import { User } from './models/user';
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component } from '@angular/core';
 
@@ -11,8 +12,10 @@ export class AppComponent {
   public isLoggedIn = false;
 
   public username: string = '';
-  updateUserData(username: string): void {
-    this.username = username;
+  public id: number = 0;
+  public currentUser: User = new User(0, '','','','','',[]);
+  updateUserData(currentUser: User): void {
+    this.currentUser = currentUser;
   }
 
   signOut(): void {

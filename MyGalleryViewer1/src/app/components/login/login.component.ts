@@ -41,7 +41,7 @@ export class LoginComponent {
           //set isLoggedIn to true
           this.appComponent.isLoggedIn = true;
           //updateUser data
-          this.appComponent.updateUserData(data.body.username);
+          this.appComponent.updateUserData(data.body);
 
 
         },
