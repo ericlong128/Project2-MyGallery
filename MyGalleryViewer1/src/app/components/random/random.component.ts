@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { ClientMessage } from 'src/app/models/client-message';
+import { UserService } from 'src/app/services/user.service';
 
-import { Image } from 'src/app/models/image';
+
 
 
 import { Gallery } from 'src/app/models/image';
@@ -15,23 +17,24 @@ import { RandomService } from 'src/app/services/random.service'
 })
 
 export class RandomComponent  {
-=======
-  
-  public user = new User(2, '', '', '', '', '', []);  
+
+  public userId: number = 0;
+  public user: User = this.appComponent.currentUser;
   public gallery = new Gallery('','','');
   public artowork = new Artwork(0,0,'','','','','','','',0,0,[this.user])
   public clientMessage: ClientMessage = new ClientMessage('');
 
 
-  
 
 
-    constructor(private RandomService: RandomService ) {
 
-      
+
+    constructor(private RandomService: RandomService, private appComponent: AppComponent, private userService: UserService) {
+
+
 
      }
-     
+
 
 
 
@@ -51,7 +54,7 @@ export class RandomComponent  {
     this.RandomService.findImage(idNum)
 
     .subscribe( (data)=> {
-     
+
        this.gallery.data = data.data;
        this.gallery.config = data.config;
        this.setArt(this.gallery);
@@ -69,11 +72,11 @@ export class RandomComponent  {
     console.log(this.artowork);
     console.log(data);
     this.clientMessage.message = '';
-    
 
-     
+
+
       // this.gallery = data
-      
+
       // console.log(this.gallery);
       // this.setArt(this.gallery);
      // to take away error message
@@ -84,11 +87,11 @@ export class RandomComponent  {
 
 
   );
-    
+
       // .json can only be called on a promise
       // it parse the body of the HTTP response into a JavaScript object
-      
-    
+
+
   }
 
 
@@ -126,7 +129,7 @@ export class RandomComponent  {
 
     let imgUrl1 = this.gallery.config.iiif_url
     let imgUrl2 = this.gallery.data.image_id;
-    
+
     this.gallery.imgSrc = `${imgUrl1}/${imgUrl2}/full/843,/0/default.jpg`;
     console.log(this.gallery.imgSrc);
 
