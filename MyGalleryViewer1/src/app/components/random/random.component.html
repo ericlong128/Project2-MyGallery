@@ -1,24 +1,25 @@
 
-   
+
     <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">Enter Artwork ID</h5>
-          <input type="number" id="art-id" placeholder="Enter Artwork ID" />
-          <button type="submit"  class="btn btn-primary"id="btn" 
-          (click)="onClick()" 
-          (mousedown)="onMousedown()" 
-          (mouseup)="onMouseup()" 
+
+          <button type="submit"  class="btn btn-primary"id="btn"
+          (click)="onClick()"
+          (mousedown)="onMousedown()"
+          (mouseup)="onMouseup()"
           [class.clicked]="clicked">
-          
+
             Get Art!
           </button>
-          <p>Example: 27992</p>
+
         </div>
       </div>
+      <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
 
-      
+        {{clientMessage.message}}
 
-    
+      </div>
 
-      <img class="d-block w-100 img-fluid" src={{imgSrc}} alt="First slide" id="art-img"> 
+      <img src={{image.imgSrc}} class="d-block w-100 img-fluid" alt="First slide" id="art-img">
+
 
