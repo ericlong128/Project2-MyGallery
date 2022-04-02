@@ -1,0 +1,26 @@
+<div class="conatiner">
+    <div class="card-header text-center">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <ul *ngFor="let art of artworks" class="list-group">
+        <li class="list-group-item">
+          <a href="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg" target=”_blank”>{{art.title}}</a>
+        </li>
+      </ul>
+  
+    </div>
+  
+    <div *ngFor=" let art of artworks" class="card-body">
+      <li class="list-group-item">
+        <h3><em>{{art.title}}</em></h3>
+      </li>
+      <li class="list-group-item">{{art.artist}} ({{art.origin}}) - {{art.date}}</li>
+      <li class="list-group-item">{{art.description}}</li>
+      <ul class="list-group">
+        <img src="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg"
+          style="max-height: 600px; min-width: 200px; height: auto; width: auto; object-fit: contain; margin-top:2%;" />
+      </ul>
+      <button class="btn btn-secondary">Remove</button>
+    </div>
+  </div>

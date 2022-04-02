@@ -10,6 +10,7 @@ import { HomeComponent} from './components/home/home.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { SelectComponent } from './select/select.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   {path: 'remove', component: RemoveComponent},
   {path: 'random', component: RandomComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'select', component: SelectComponent},
+
 
 
 
