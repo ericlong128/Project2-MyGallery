@@ -27,7 +27,15 @@
       <li class="list-group-item">Last Name: {{user.lastName}}</li>
       <li class="list-group-item">Username: {{user.username}}</li>
       <li class="list-group-item">Email: {{user.email}}</li>
+      <li class="list-group-item">
+        <button class="btn btn-secondary"
+        (click)="onClick(user.id)"
+          routerLink="/select" routerLinkActive="active">View</button>
 
+         
+        
+        
+        </li>
 
 
     </ul>

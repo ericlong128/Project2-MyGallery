@@ -50,8 +50,12 @@ export class GalleryComponent implements OnInit {
   clicked = false;
 
 
-  public onClick() {
-
+  public onClick(id:number) {
+    console.log(this.user.id);
+    this.userService.findUserById(this.userId).subscribe(
+      data => this.artworks = data.artworks,
+      () => this.clientMessage.message = `Can't find the User ${this.userId}`
+    );
     // const min = Math.ceil(10000);
     // const max = Math.floor(69999);
     // let random = Math.floor(Math.random() * (max - min + 1) + min);
