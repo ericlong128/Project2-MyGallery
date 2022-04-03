@@ -26,7 +26,7 @@ export class AllartComponent implements OnInit {
   public nextPage: number = 2;
   public prevPage: number = 0;
   public alertId: number = 0;
-  public goToPage: number = 1;
+  public goToPage: number = 0;
 
 
   constructor(private appComponent: AppComponent, private userService: UserService, private artworkService: ArtworkService) { }
@@ -44,6 +44,7 @@ export class AllartComponent implements OnInit {
     this.currentPage = cPage;
     this.nextPage = cPage + 1;
     this.prevPage = cPage - 1;
+    this.goToPage = this.currentPage;
     this.alertId = -1;
   }
   // registerThisArtwork(0, art.id, art.image_id, art.image_id, art.artist_title, art.date_display, art.thumbnail.alt_text, art.place_of_origin, art.title, art.thumbnail.width, art.thumbnail.height, this.user)

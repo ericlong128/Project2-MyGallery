@@ -3,13 +3,15 @@
         <h2>{{title}}</h2>
         <li class=" list-group-item">
             <div>
-                <button *ngIf="this.currentPage!=1" class="btn btn-secondary"
+                <button *ngIf="this.currentPage!=1" class="btn btn-secondary float-left"
                     (click)="listArtworks(this.prevPage)">Previous Page</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                Go to Page:&nbsp;&nbsp;<input [(ngModel)]="goToPage" type="text" aria-label="Small" size="2"
+                Go to Page:&nbsp;&nbsp;<input [(ngModel)]="goToPage" type="number" aria-label="Small" size="2"
                     (keydown.enter)="listArtworks(this.goToPage)" placeholder={{this.goToPage}} />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-secondary" (click)="listArtworks(this.nextPage)">Next Page</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="listArtworks(this.goToPage)">Go</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary float-right" (click)="listArtworks(this.nextPage)">Next Page</button>
             </div>
         </li>
 
@@ -50,13 +52,22 @@
             </ul>
 
         </div>
-        <div>
-            <button *ngIf="this.currentPage!=1" class="btn btn-secondary"
-                (click)="listArtworks(this.prevPage);">Previous
-                Page</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-secondary" (click)="listArtworks(this.nextPage)">Next Page</button>
-        </div>
+
+        <li class=" list-group-item">
+            <div>
+                <button *ngIf="this.currentPage!=1" class="btn btn-secondary float-left"
+                    (click)="listArtworks(this.prevPage)">Previous Page</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Go to Page:&nbsp;&nbsp;
+                <input [(ngModel)]="goToPage" type="number" class="small-input" aria-label="Small"
+                    (keydown.enter)="listArtworks(this.goToPage)" placeholder={{this.goToPage}} />
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="listArtworks(this.goToPage)">Go</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary float-right" (click)="listArtworks(this.nextPage)">Next Page</button>
+            </div>
+        </li>
+
 
 
     </div>
