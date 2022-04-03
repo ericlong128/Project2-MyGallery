@@ -2,25 +2,35 @@
   <div class="card-header text-center">
     <h2>{{title}}</h2>
   </div>
-  <div class="card-body">
-    <ul *ngFor="let art of artworks" class="list-group">
+
+  <div *ngFor=" let art of artworks; let i = index" class="card-body text-center">
+
+    <div class="modal fade bd-example-modal-lg" id="modal{{i}}" tabindex="-1" role="dialog"
+      aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered"
+        style="max-height: 95vh; max-width: 95vh; height: auto; width: auto;">
+        <div class="modal-content" style="background-color: transparent; border: 0;">
+          <img src="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg"
+            style="max-height: 95vh; max-width: 95vh; height: auto; width: auto; object-fit: contain;" />
+        </div>
+      </div>
+
+    </div>
+    <ul>
       <li class="list-group-item">
-        <a href="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg" target=”_blank”>{{art.title}}</a>
+        <h3><em>{{art.title}}</em></h3>
+      </li>
+      <li class="list-group-item">{{art.artist}} ({{art.origin}}) - {{art.date}}</li>
+      <li class="list-group-item">{{art.description}}</li>
+      <li class="list-group-item" style="background-color: rgba(0,0,0,.03);">
+        <div data-toggle="modal" [attr.data-target]="'#modal' + i" style="width: 100%;">
+          <img src="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg"
+            style="max-height: 600px; height: auto; width: 100%; object-fit: contain;" />
+        </div>
+      </li>
+      <li class=" list-group-item">
+        <button class="btn btn-secondary" (click)="removeThisArtwork(art.id); ngOnInit();">Remove</button>
       </li>
     </ul>
-
-  </div>
-
-  <div *ngFor=" let art of artworks" class="card-body">
-    <li class="list-group-item">
-      <h3><em>{{art.title}}</em></h3>
-    </li>
-    <li class="list-group-item">{{art.artist}} ({{art.origin}}) - {{art.date}}</li>
-    <li class="list-group-item">{{art.description}}</li>
-    <ul class="list-group">
-      <img src="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg"
-        style="max-height: 600px; min-width: 200px; height: auto; width: auto; object-fit: contain; margin-top:2%;" />
-    </ul>
-    <button class="btn btn-secondary">Remove</button>
   </div>
 </div>
