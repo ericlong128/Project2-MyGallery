@@ -20,7 +20,7 @@ import { RemoveComponent } from './components/remove/remove.component';
 import { RandomComponent } from './components/random/random.component';
 import { SaveComponent } from './save/save.component';
 import { SelectComponent } from './select/select.component';
-
+import { AllartComponent } from './components/allart/allart.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { SelectComponent } from './select/select.component';
     RemoveComponent,
     RandomComponent,
     SaveComponent,
-    SelectComponent
+    SelectComponent,
+    AllartComponent,
 
   ],
   imports: [

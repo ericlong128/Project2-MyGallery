@@ -5,32 +5,35 @@ import { AllComponent } from './components/all/all.component';
 import { FindComponent } from './components/find/find.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent} from './components/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { SelectComponent } from './select/select.component';
+import { AllartComponent } from './components/allart/allart.component';
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'find', component: FindComponent},
-  {path: '', component: HomeComponent},
-  {path: 'gallery', component: GalleryComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'all', component: AllComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'remove', component: RemoveComponent},
-  {path: 'random', component: RandomComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'select', component: SelectComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'find', component: FindComponent },
+  { path: '', component: HomeComponent },
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'all', component: AllComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'remove', component: RemoveComponent },
+  { path: 'random', component: RandomComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'select', component: SelectComponent },
+  { path: 'allart', component: AllartComponent },
 
 
 
 
-  {path: '**', component: HomeComponent}
+
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
