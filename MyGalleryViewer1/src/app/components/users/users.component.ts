@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent {
 
+  currentUsername: string = this.appComponent.currentUser.username;
+
   title = 'User Portal'
   constructor(public appComponent: AppComponent) { }
 
