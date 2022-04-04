@@ -7,14 +7,17 @@ import { AllComponent } from './components/all/all.component';
 import { FindComponent } from './components/find/find.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent} from './components/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { SelectComponent } from './select/select.component';
+import { AllartComponent } from './components/allart/allart.component';
 
 
 const routes: Routes = [
+
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'find', component: FindComponent},
@@ -28,10 +31,15 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'bulkRandom', component: BulkRandomComponent},
   {path: 'landing', component: LandingComponent},
+  {path: 'select', component: SelectComponent },
+  {path: 'allart', component: AllartComponent },
 
 
 
-  {path: '**', component: HomeComponent}
+
+
+
+  {path: '**', component: HomeComponent }
 ];
 
 @NgModule({

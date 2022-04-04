@@ -21,6 +21,8 @@ import { RandomComponent } from './components/random/random.component';
 import { SaveComponent } from './save/save.component';
 import { BulkRandomComponent } from './components/bulk-random/bulk-random.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { SelectComponent } from './select/select.component';
+import { AllartComponent } from './components/allart/allart.component';
 
 
 @NgModule({
@@ -38,7 +40,10 @@ import { LandingComponent } from './components/landing/landing.component';
     RandomComponent,
     SaveComponent,
     BulkRandomComponent,
-    LandingComponent
+    LandingComponent,
+    SelectComponent,
+    AllartComponent,
+
 
   ],
   imports: [
