@@ -19,6 +19,8 @@ import { UsersComponent } from './components/users/users.component';
 import { RemoveComponent } from './components/remove/remove.component';
 import { RandomComponent } from './components/random/random.component';
 import { SaveComponent } from './save/save.component';
+import { BulkRandomComponent } from './components/bulk-random/bulk-random.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { SaveComponent } from './save/save.component';
     UsersComponent,
     RemoveComponent,
     RandomComponent,
-    SaveComponent
+    SaveComponent,
+    BulkRandomComponent,
+    LandingComponent
 
   ],
   imports: [

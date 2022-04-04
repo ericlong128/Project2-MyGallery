@@ -1,3 +1,5 @@
+import { LandingComponent } from './components/landing/landing.component';
+import { BulkRandomComponent } from './components/bulk-random/bulk-random.component';
 import { RandomComponent } from './components/random/random.component';
 import { RemoveComponent } from './components/remove/remove.component';
 import { UsersComponent } from './components/users/users.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'remove', component: RemoveComponent},
   {path: 'random', component: RandomComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'bulkRandom', component: BulkRandomComponent},
+  {path: 'landing', component: LandingComponent},
 
 
 

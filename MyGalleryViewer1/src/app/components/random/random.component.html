@@ -3,11 +3,11 @@
     <div class="card text-center">
         <div class="card-body">
 <h5 class="card-title">Click The to Get art</h5>
-         
-          <button type="submit"  class="btn btn-primary"id="btn" 
-          (click)="onClick()" 
-          (mousedown)="onMousedown()" 
-          (mouseup)="onMouseup()" 
+
+          <button type="submit"  class="btn btn-primary"id="btn"
+          (click)="onClick()"
+          (mousedown)="onMousedown()"
+          (mouseup)="onMouseup()"
 
           [class.clicked]="clicked">
 
@@ -16,13 +16,18 @@
 
           <button type="submit" class="btn btn-danger" (click)="registerArtwork()">Register</button>
         </div>
+        <div>
+          <button type="submit" class="btn btn-secondary" routerLink="/bulkRandom">Click here to get several images at once!</button>
+
+
+        </div>
         <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
 
           {{clientMessage.message}}
-    
+
         </div>
       </div>
 
-      
-      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" alt="First slide" id="art-img"> 
-      >>>>>>> main
+
+      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" alt="First slide" id="art-img">
+
