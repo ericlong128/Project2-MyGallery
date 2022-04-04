@@ -81,20 +81,15 @@ export class RandomComponent  {
       // this.setArt(this.gallery);
      // to take away error message
     }
+    , error =>{ this.clientMessage.message = `No artwork found for ID: ${idNum} please try again!`,
+       this.gallery.imgSrc=''
 
-    , error => this.clientMessage.message = `No artwork found for ID: ${idNum} please try again!`
-
-
-
-      this.gallery.imgSrc=''
+   }
 
 
-  }
+   );
 
-
-  );
-
-      // .json can only be called on a promise
+      // .json can only be called on a promise `No artwork found for ID: ${idNum} please try again!`
       // it parse the body of the HTTP response into a JavaScript object
 
 
