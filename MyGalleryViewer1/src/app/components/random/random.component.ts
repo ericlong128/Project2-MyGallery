@@ -22,27 +22,23 @@ export class RandomComponent  {
   public user: User = this.appComponent.currentUser;
   public gallery = new Gallery('','','');
   public artowork = new Artwork(0,0,'','','','','','','',0,0,[this.user])
-  public clientMessage: ClientMessage = new ClientMessage('');
+  public clientMessageError: ClientMessage = new ClientMessage('');
+  public clientMessageRegister: ClientMessage = new ClientMessage('');
+  public idNum: number = 0;
 
 
 
 
 
 
-    constructor(private RandomService: RandomService, private appComponent: AppComponent, private userService: UserService) {
-
-
-
-     }
-
-
-
-
+    constructor(private RandomService: RandomService, private appComponent: AppComponent, private userService: UserService)  { }
 
 
   random:number= 0
   clicked = false;
-
+  ngOnInit(): void {
+    this.onClick()
+  }
 
   public onClick() {
 
@@ -50,8 +46,8 @@ export class RandomComponent  {
     const max = Math.floor(69999);
     this.random =  Math.floor(Math.random() * (max - min + 1) + min);
 
-    let idNum = this.random;
-    this.RandomService.findImage(idNum)
+    this.idNum = this.random;
+    this.RandomService.findImage(this.idNum)
 
     .subscribe( (data)=> {
 
@@ -71,7 +67,8 @@ export class RandomComponent  {
     console.log(this.gallery);
     console.log(this.artowork);
     console.log(data);
-    this.clientMessage.message = '';
+    this.clientMessageError.message = '';
+    this.clientMessageRegister.message = '';
 
 
 
@@ -81,7 +78,7 @@ export class RandomComponent  {
       // this.setArt(this.gallery);
      // to take away error message
     }
-    , error =>{ this.clientMessage.message = `No artwork found for ID: ${idNum} please try again!`,
+    , error =>{ this.clientMessageError.message = `No artwork found for ID: ${this.idNum} please try again!`,
        this.gallery.imgSrc=''
 
    }
@@ -112,6 +109,7 @@ export class RandomComponent  {
     console.log(this.artowork);
     this.RandomService.saveImage(this.artowork)
       .subscribe(data => console.log(data), error => console.log(error));
+      this.clientMessageRegister.message=`Successfully registered Artwork-ID: ${this.idNum} to MyGallery`
   }
 
   /**

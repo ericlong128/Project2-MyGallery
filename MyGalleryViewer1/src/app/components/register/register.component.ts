@@ -30,7 +30,7 @@ export class RegisterComponent {
 
     this.userService.registerUser(this.user)
       .subscribe(
-        data => this.clientMessage.message = `Successfully Registered ${data.firstName} `,
+        data => this.clientMessage.message = `Successfully Registered ${data.username} `,
         error => this.clientMessage.message = `Something went wrong. Error ${error}`);
   }
 }
