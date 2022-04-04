@@ -21,13 +21,18 @@
 
 
         </div>
-        <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
+        <div *ngIf="clientMessageError.message.length" class="alert alert-danger" role="alert">
 
-          {{clientMessage.message}}
+          {{clientMessageError.message}}
+
+        </div>
+        <div *ngIf="clientMessageRegister.message.length" class="alert alert-success" role="alert">
+
+          {{clientMessageRegister.message}}
 
         </div>
       </div>
 
 
-      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" alt="First slide" id="art-img">
+      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" id="art-img">
 
