@@ -8,9 +8,9 @@
           <a href="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg" target=”_blank”>{{art.title}}</a>
         </li>
       </ul>
-  
+
     </div>
-  
+
     <div *ngFor=" let art of artworks" class="card-body">
       <li class="list-group-item">
         <h3><em>{{art.title}}</em></h3>
@@ -21,6 +21,5 @@
         <img src="{{art.image_config}}/{{art.image_id}}/full/843,/0/default.jpg"
           style="max-height: 600px; min-width: 200px; height: auto; width: auto; object-fit: contain; margin-top:2%;" />
       </ul>
-      <button class="btn btn-secondary">Remove</button>
     </div>
   </div>

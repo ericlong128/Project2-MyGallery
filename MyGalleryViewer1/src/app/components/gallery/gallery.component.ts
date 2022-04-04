@@ -20,6 +20,7 @@ export class GalleryComponent implements OnInit {
 
   title = "MyGallery";
 
+  public currentUser: User = this.appComponent.currentUser;
   public userId: number = this.appComponent.currentUser.id;
   public user = new User(0, '', '', '', '', '', []);
   public artwork = new Artwork(0, 0, '', '', '', '', '', '', '', 0, 0, [this.user]);
