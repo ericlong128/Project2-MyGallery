@@ -12,7 +12,7 @@
         <input [(ngModel)]="password" name="password" type="password" placeholder="Password" autocomplete="off">
       </div>
 
-      <div class="btn btn-secondary" (click)="login()" *ngIf="!isLoading">Log in</div>
+      <div class="btn btn-secondary" (click)="login()" *ngIf="!isLoading" routerLink="/landing">Log in</div>
 
       <p>{{loginErrMsg}}</p>
     </form>

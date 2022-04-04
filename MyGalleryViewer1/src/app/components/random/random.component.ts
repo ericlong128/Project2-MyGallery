@@ -81,8 +81,13 @@ export class RandomComponent  {
       // this.setArt(this.gallery);
      // to take away error message
     }
-   , error =>{ this.clientMessage.message = `No artwork found please try again!`,
+
+    , error => this.clientMessage.message = `No artwork found for ID: ${idNum} please try again!`
+
+
+
       this.gallery.imgSrc=''
+
 
   }
 

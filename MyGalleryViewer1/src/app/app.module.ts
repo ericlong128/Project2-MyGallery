@@ -19,8 +19,11 @@ import { UsersComponent } from './components/users/users.component';
 import { RemoveComponent } from './components/remove/remove.component';
 import { RandomComponent } from './components/random/random.component';
 import { SaveComponent } from './save/save.component';
+import { BulkRandomComponent } from './components/bulk-random/bulk-random.component';
+import { LandingComponent } from './components/landing/landing.component';
 import { SelectComponent } from './select/select.component';
 import { AllartComponent } from './components/allart/allart.component';
+
 
 @NgModule({
   declarations: [
@@ -36,8 +39,11 @@ import { AllartComponent } from './components/allart/allart.component';
     RemoveComponent,
     RandomComponent,
     SaveComponent,
+    BulkRandomComponent,
+    LandingComponent,
     SelectComponent,
     AllartComponent,
+
 
   ],
   imports: [

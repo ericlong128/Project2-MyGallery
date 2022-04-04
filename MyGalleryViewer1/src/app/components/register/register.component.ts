@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { ClientMessage } from 'src/app/models/client-message';
 import { Artwork, User } from 'src/app/models/user';

@@ -13,4 +13,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  signOut(): void {
+
+    window.location.reload(); //flushes the session
+  }
 }

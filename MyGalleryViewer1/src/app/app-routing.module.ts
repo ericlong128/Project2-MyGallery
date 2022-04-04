@@ -1,3 +1,5 @@
+import { LandingComponent } from './components/landing/landing.component';
+import { BulkRandomComponent } from './components/bulk-random/bulk-random.component';
 import { RandomComponent } from './components/random/random.component';
 import { RemoveComponent } from './components/remove/remove.component';
 import { UsersComponent } from './components/users/users.component';
@@ -15,25 +17,29 @@ import { AllartComponent } from './components/allart/allart.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'find', component: FindComponent },
-  { path: '', component: HomeComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'all', component: AllComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'remove', component: RemoveComponent },
-  { path: 'random', component: RandomComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'select', component: SelectComponent },
-  { path: 'allart', component: AllartComponent },
+
+  {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'find', component: FindComponent},
+  {path: '', component: HomeComponent},
+  {path: 'gallery', component: GalleryComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'all', component: AllComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'remove', component: RemoveComponent},
+  {path: 'random', component: RandomComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'bulkRandom', component: BulkRandomComponent},
+  {path: 'landing', component: LandingComponent},
+  {path: 'select', component: SelectComponent },
+  {path: 'allart', component: AllartComponent },
 
 
 
 
 
-  { path: '**', component: HomeComponent }
+
+  {path: '**', component: HomeComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+<div class="card text-center">
+  <div class="card-body">
+<h5 class="card-title">Click The to Get art</h5>
+
+    <button type="submit"  class="btn btn-primary"id="btn"
+    (click)="this.createRange(this.numOfImages)"
+
+
+    [class.clicked]="clicked">
+
+      Get Art!
+    </button>
+
+
+<ul *ngIf="images.length > 0">
+  <li *ngFor="let image of images">
+
+    <img [src]="image.imgSrc" [alt]="image.title">
+    <div class="row">
+      <div class="col text-center">
+
+      <button type="submit" class="btn btn-danger" (click)="registerArtwork()">Register</button>
+      </div>
+    </div>
+    <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
+
+      {{clientMessage.message}}
+
+    </div>
+
+
+
+  </li>
+</ul>
+<h1 *ngIf="images.length === 0">Please allow a few moments for images to load between clicks</h1>
