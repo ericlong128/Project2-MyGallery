@@ -1,0 +1,20 @@
+<div>
+
+  <div class="card-body">
+
+    <form>
+
+      <div>
+        <input [(ngModel)]="username" name="username" type="text" placeholder="Username" autocomplete="off">
+      </div>
+
+      <div>
+        <input [(ngModel)]="password" name="password" type="password" placeholder="Password" autocomplete="off">
+      </div>
+
+      <div class="btn btn-secondary" (click)="login()" *ngIf="!isLoading" routerLink="/landing">Log in</div>
+
+      <p>{{loginErrMsg}}</p>
+    </form>
+  </div>
+</div>

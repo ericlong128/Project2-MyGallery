@@ -1,0 +1,38 @@
+
+
+    <div class="card text-center">
+        <div class="card-body">
+<h5 class="card-title">Click The to Get art</h5>
+
+          <button type="submit"  class="btn btn-primary"id="btn"
+          (click)="onClick()"
+          (mousedown)="onMousedown()"
+          (mouseup)="onMouseup()"
+
+          [class.clicked]="clicked">
+
+            Get Art!
+          </button>
+
+          <button type="submit" class="btn btn-danger" (click)="registerArtwork()">Register</button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-secondary" routerLink="/bulkRandom">Click here to get several images at once!</button>
+
+
+        </div>
+        <div *ngIf="clientMessageError.message.length" class="alert alert-danger" role="alert">
+
+          {{clientMessageError.message}}
+
+        </div>
+        <div *ngIf="clientMessageRegister.message.length" class="alert alert-success" role="alert">
+
+          {{clientMessageRegister.message}}
+
+        </div>
+      </div>
+
+
+      <img class="d-block w-100 img-fluid" [src]="gallery.imgSrc" id="art-img">
+

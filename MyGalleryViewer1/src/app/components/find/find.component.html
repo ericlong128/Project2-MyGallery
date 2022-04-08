@@ -1,0 +1,59 @@
+<div>
+
+  <div>
+    <!--one way data binding via {{interpolation}}-->
+    <h2 class="card-header text-center">{{title}}</h2>
+  </div>
+
+  <div class="card-body">
+
+    <h5 class="card-title">Enter the Id of the User you want to find:</h5>
+
+    <div class="input-group flex-nowrap">
+
+        <span class="input-group-text" id="addon-wrapping">Id</span>
+
+        <input [(ngModel)]="userId" name="userId" type="number" class="form-control" placeholder="Enter User's Id" (keydown.enter)="findUser()">
+
+        <button class="btn btn-secondary" (click)="findUser()">Find</button>
+
+    </div>
+
+    <!--*ngIf use a Structural directive to display the user's info below-->
+    <ul *ngIf="this.user.id > 0" id="user-info">
+
+      <li class="list-group-item">Id: {{user.id}}</li>
+      <li class="list-group-item">First Name: {{user.firstName}}</li>
+      <li class="list-group-item">Last Name: {{user.lastName}}</li>
+      <li class="list-group-item">Username: {{user.username}}</li>
+      <li class="list-group-item">Email: {{user.email}}</li>
+      <li class="list-group-item">
+        <button class="btn btn-secondary"
+        (click)="onClick(user.id)"
+          routerLink="/select" routerLinkActive="active">View</button>
+
+         
+        
+        
+        </li>
+
+
+    </ul>
+
+    <div *ngIf="clientMessage.message.length" class="alert alert-danger" role="alert">
+
+      {{clientMessage.message}}
+
+    </div>
+
+    <!--*ngIf Add a message if something goes wrong-->
+
+
+
+  </div>
+
+
+
+
+
+</div>

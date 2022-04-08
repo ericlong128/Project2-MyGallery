@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="card-header text-center">
+        <h2>{{title}}</h2>
+        <li class=" list-group-item">
+            <div>
+                <button *ngIf="this.currentPage!=1" class="btn btn-secondary float-left"
+                    (click)="listArtworks(this.prevPage)">Previous Page</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Go to Page:&nbsp;&nbsp;<input [(ngModel)]="goToPage" type="number" aria-label="Small" size="2"
+                    (keydown.enter)="listArtworks(this.goToPage)" placeholder={{this.goToPage}} />
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="listArtworks(this.goToPage)">Go</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary float-right" (click)="listArtworks(this.nextPage)">Next Page</button>
+            </div>
+        </li>
+
+        <div *ngFor=" let art of gallery.data; let i = index" class="card-body text-center">
+            <div class="modal fade bd-example-modal-lg" id="modal{{i}}" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered"
+                    style="max-height: 95vh; max-width: 95vh; height: auto; width: auto;">
+                    <div class="modal-content" style="background-color: transparent; border: 0;">
+                        <img src="https://www.artic.edu/iiif/2/{{art.image_id}}/full/843,/0/default.jpg"
+                            style="max-height: 95vh; max-width: 95vh; height: auto; width: auto; object-fit: contain;" />
+                    </div>
+                </div>
+
+            </div>
+            <ul>
+                <li class="list-group-item">
+                    <h3><em>{{art.title}}</em></h3>
+                </li>
+                <li class="list-group-item">{{art.artist_title}} ({{art.place_of_origin}}) - {{art.date_display}}</li>
+                <!-- <li class="list-group-item">{{art.thumbnail.alt_text}}</li> -->
+                <li class="list-group-item" style="background-color: rgba(0,0,0,.03);">
+                    <div data-toggle="modal" [attr.data-target]="'#modal' + i" style="width: 100%;">
+                        <img src="https://www.artic.edu/iiif/2/{{art.image_id}}/full/843,/0/default.jpg"
+                            style="max-height: 600px; height: auto; width: 100%; object-fit: contain;" />
+                    </div>
+                </li>
+                <li class=" list-group-item">
+                    <button class="btn btn-secondary"
+                        (click)="registerThisArtwork(0, art.id, art.image_id, art.artist_title, art.date_display, art.thumbnail.alt_text, art.place_of_origin, art.title, art.thumbnail.width, art.thumbnail.height, this.user); this.alertId = i">Add
+                        to My Gallery</button>
+                </li>
+                <li class=" list-group-item">
+                    <div *ngIf="clientMessage.message.length > 0 && alertId == i" class="alert alert-success"
+                        role="alert">
+                        {{clientMessage.message}}</div>
+                </li>
+            </ul>
+
+        </div>
+
+        <li class=" list-group-item">
+            <div>
+                <button *ngIf="this.currentPage!=1" class="btn btn-secondary float-left"
+                    (click)="listArtworks(this.prevPage)">Previous Page</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Go to Page:&nbsp;&nbsp;
+                <input [(ngModel)]="goToPage" type="number" class="small-input" aria-label="Small"
+                    (keydown.enter)="listArtworks(this.goToPage)" placeholder={{this.goToPage}} />
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="listArtworks(this.goToPage)">Go</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary float-right" (click)="listArtworks(this.nextPage)">Next Page</button>
+            </div>
+        </li>
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div>
+
+  <div>
+    <!-- one way data bind {{interpolation}}-->
+    <h2 class="card-header">{{title}}</h2>
+
+  </div>
+
+  <div class="card-body">
+
+    <div style="width: 100%;">
+      <div style="width: 50%; height: 200px; float: left;">
+        <h4>Click below to go to your Gallery page:</h4>
+        <div>
+          <button class="btn btn-secondary btn-center" routerLink="/gallery">MyGallery!</button>
+        </div>
+      </div>
+      <div style="margin-left: 50%; height: 200px;">
+          <h4>{{currentUser}} has {{numOfArt}} pieces of art in their Gallery, click here to add some new Art:</h4>
+          <div>
+            <button class="btn btn-secondary btn-center" routerLink="/random">Get Art!</button>
+          </div>
+
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+</div>
